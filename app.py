@@ -55,7 +55,7 @@ st.image(images[val][gram-1], use_column_width=True)
 
 # TFIDF start
 
-st.header("Wordclouds")
+st.header("N-Grams")
 
 org = st.selectbox(
     'Company name:',
