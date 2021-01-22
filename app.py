@@ -5,7 +5,7 @@ import numpy as np
 from components.maps import *
 from components.wordclouds import *
 from components.ngrams import *
-
+from components.readabilityScores import *
 
 companies = ("Dunzo", "Facebook", "Instagram", "Paypal", "Playstore", "Twitter", "Uber")
 
@@ -70,3 +70,10 @@ csv = st.selectbox(
 st.write(csvs[org][csv-1], use_column_width=True)
 
 # TFIDF end
+
+# READIBILITY SCORES
+st.header("Readability Scores")
+
+st.write(ReadabilityScores())
+
+# READIBILITY SCORES END
