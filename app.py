@@ -6,6 +6,7 @@ from components.maps import *
 from components.wordclouds import *
 from components.ngrams import *
 from components.readability import *
+from components.similarity import *
 
 companies = ("Dunzo", "Facebook", "Instagram", "Paypal", "Playstore", "Twitter", "Uber")
 
