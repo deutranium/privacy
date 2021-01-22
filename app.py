@@ -2,100 +2,71 @@ import streamlit as st
 import plotly.express as px
 import numpy as np
 
-
-def gdpr_compliant_map():
-    lt = [
-        "Austria",
-        "Belgium",
-        "Bulgaria",
-        "Croatia",
-        "Republic of Cyprus",
-        "Czech Republic",
-        "Denmark",
-        "Estonia",
-        "Finland",
-        "France",
-        "Germany",
-        "Greece",
-        "Hungary",
-        "Ireland",
-        "Italy",
-        "Latvia",
-        "Lithuania",
-        "Luxembourg",
-        "Malta",
-        "Netherlands",
-        "Poland",
-        "Portugal",
-        "Romania",
-        "Slovakia",
-        "Slovenia",
-        "Spain",
-        "Sweden",
-        "United Kingdom"
-    ]
-
-    gapminder = px.data.gapminder().query("year==2007")
-    gapminder["GDPR Compliant"] = gapminder.apply(
-        lambda row: True if row.country in lt else False, axis=1)
-    fig = px.choropleth(gapminder, locations="iso_alpha",
-                        color="GDPR Compliant",
-                        hover_name="country",
-                        color_discrete_map={0: "cyan", 1: "yellow"})
-    st.plotly_chart(fig)
+from components.maps import *
+from components.wordclouds import *
+from components.ngrams import *
 
 
-def fb_active_map():
-    lt = ["China", "Iran", "Syria", "North Korea"]
-    gapminder = px.data.gapminder().query("year==2007")
-    gapminder["Facebook Active"] = gapminder.apply(
-        lambda row: True if row.country not in lt else False, axis=1)
-
-    fig = px.choropleth(gapminder, locations="iso_alpha",
-                        color="Facebook Active",
-                        hover_name="country",
-                        color_discrete_map={0: "cyan", 1: "yellow"})
-
-    st.plotly_chart(fig)
-
-
-def twitter_active_map():
-    lt = ["China", "Iran", "North Korea"]
-
-    gapminder = px.data.gapminder().query("year==2007")
-    gapminder["Twitter Active"] = gapminder.apply(
-        lambda row: True if row.country not in lt else False, axis=1)
-
-    fig = px.choropleth(gapminder, locations="iso_alpha",
-                        color="Twitter Active",
-                        hover_name="country",
-                        color_discrete_map={0: "cyan", 1: "yellow"})
-
-    st.plotly_chart(fig)
-
-def insta_active():
-    lt = ["China", "Iran", "North Korea"]
-    gapminder = px.data.gapminder().query("year==2007")
-    gapminder["Instagram Active"] = gapminder.apply(lambda row: True if row.country not in lt else False , axis=1)
-
-    fig = px.choropleth(gapminder, locations="iso_alpha",
-                        color="Instagram Active", 
-                        hover_name="country", 
-                        color_discrete_map={0:"cyan", 1:"yellow"})
-    st.plotly_chart(fig)
-
+companies = ("Dunzo", "Facebook", "Instagram", "Paypal", "Playstore", "Twitter", "Uber")
 
 st.title("Privacy Visualisations")
 st.markdown("Lorem ipsum dolor sit amet")
+
+# MAPS start
+st.header("Maps")
+
 gdpr_compliant_map()
 st.markdown("Lorem ipsum dolor sit amet")
 st.markdown("----")
+
 fb_active_map()
 st.markdown("Lorem ipsum dolor sit amet")
 st.markdown("----")
+
 twitter_active_map()
 st.markdown("Lorem ipsum dolor sit amet")
 st.markdown("----")
+
 insta_active()
 st.markdown("Lorem ipsum dolor sit amet")
 st.markdown("----")
+
+# MAPS end
+
+
+# WORDCLOUDS start
+
+st.header("Wordclouds")
+
+val = st.selectbox(
+    'Company name: ',
+    companies
+)
+
+gram = st.selectbox(
+    'Gram: ',
+    (1, 2, 3, 4)
+)
+
+st.image(images[val][gram-1], use_column_width=True)
+
+# WORDCLOUDS end
+
+
+# TFIDF start
+
+st.header("Wordclouds")
+
+org = st.selectbox(
+    'Company name:',
+    companies
+)
+
+csv = st.selectbox(
+    'Gram:',
+    (1, 2, 3, 4)
+)
+
+st.write(csvs[org][csv-1], use_column_width=True)
+
+# TFIDF end
