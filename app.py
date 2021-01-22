@@ -5,7 +5,7 @@ import numpy as np
 from components.maps import *
 from components.wordclouds import *
 from components.ngrams import *
-from components.readabilityScores import *
+from components.readability import *
 
 companies = ("Dunzo", "Facebook", "Instagram", "Paypal", "Playstore", "Twitter", "Uber")
 
