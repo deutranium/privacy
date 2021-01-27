@@ -87,6 +87,13 @@ st.write(csvs[org][csv-1], use_column_width=True)
 # READIBILITY SCORES
 st.header("Readability Scores")
 
-st.write(ReadabilityScores())
+# convert to CSV
+# df = ReadabilityScores()
+# csv = df.to_csv('./assets/readability.csv')
+
+# st.write(df)
+
+csv = pd.read_csv('./assets/readability.csv')
+st.write(csv)
 
 # READIBILITY SCORES END
