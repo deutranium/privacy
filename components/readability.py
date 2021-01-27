@@ -5,6 +5,8 @@ from textstat.textstat import textstatistics, legacy_round
 import textstat
 import pandas as pd
 
+import streamlit as st
+
 filelist = ["amazon", "flipkart", "ola", "toi", "uber"]
 dirpath = "./data"
 
@@ -43,7 +45,7 @@ def avg_syllables_per_word(text):
 
 
 
-
+@st.cache
 def flesch_reading_ease(text):
     """ 
         Implements Flesch Formula: 
@@ -99,6 +101,7 @@ def difficult_words(text):
     return len(diff_words_set) 
 
 
+@st.cache
 def dale_chall_readability_score(text):
     """ 
         Implements Dale Challe Formula: 
@@ -132,6 +135,7 @@ def dale_chall_readability_score(text):
 
     return legacy_round(raw_score, 2)
 
+@st.cache
 def ReadabilityScores():
     tempDict = {}
     tempDict["Company"] = []

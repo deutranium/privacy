@@ -6,30 +6,42 @@ from components.maps import *
 from components.wordclouds import *
 from components.ngrams import *
 from components.readability import *
-from components.similarity import *
+# from components.similarity import *
 
 companies = ("Dunzo", "Facebook", "Instagram", "Paypal", "Playstore", "Twitter", "Uber")
 
 st.title("Privacy Visualisations")
-st.markdown("Lorem ipsum dolor sit amet")
 
 # MAPS start
 st.header("Maps")
 
 gdpr_compliant_map()
-st.markdown("Lorem ipsum dolor sit amet")
+st.markdown("### GDPR Compliant Countries")
 st.markdown("----")
 
 fb_active_map()
-st.markdown("Lorem ipsum dolor sit amet")
+st.markdown("### Facebook privacy policy across the map")
+st.markdown("Privacy policy is consistent in like colored regions")
 st.markdown("----")
 
 twitter_active_map()
-st.markdown("Lorem ipsum dolor sit amet")
+st.markdown("### Twitter privacy policy across the map")
+st.markdown("Privacy policy is consistent in like colored regions")
 st.markdown("----")
 
 insta_active()
-st.markdown("Lorem ipsum dolor sit amet")
+st.markdown("### Instagram privacy policy across the map")
+st.markdown("Privacy policy is consistent in like colored regions")
+st.markdown("----")
+
+paypal_active()
+st.markdown("### Paypal privacy policy across the map")
+st.markdown("Privacy policy is consistent in like colored regions")
+st.markdown("----")
+
+uber_active()
+st.markdown("### Uber privacy policy across the map")
+st.markdown("Privacy policy is consistent in like colored regions")
 st.markdown("----")
 
 # MAPS end
