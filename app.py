@@ -93,7 +93,15 @@ st.header("Readability Scores")
 
 # st.write(df)
 
-csv = pd.read_csv('./assets/readability.csv')
-st.write(csv)
+csv_readability = pd.read_csv('./assets/readability.csv')
+st.write(csv_readability)
+
+st.header("Similarity Scores")
+csv_similarity = pd.read_csv('./assets/similarity.csv')
+df_similarity = pd.DataFrame(csv_similarity)
+
+df_similarity = df_similarity.set_index('Company')
+
+st.table(df_similarity)
 
 # READIBILITY SCORES END
