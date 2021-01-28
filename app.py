@@ -34,7 +34,9 @@ mapOpt = st.selectbox(
     'Select option: ',
     ("GDPR Compliant Countries", "Facebook", "Twitter", "Instagram", "Paypal", "Uber")
 )
-st.write("Privacy policy is consistent in like colored regions")
+
+if mapOpt != "GDPR Compliant Countries":
+    st.write("Privacy policy is consistent in like colored regions")
 mapFunc[mapOpt]()
 # MAPS end
 
