@@ -1,10 +1,7 @@
 import streamlit as st
 import plotly.express as px
 import numpy as np
-import pandas as pd
-import pydeck as pdk
 
-geodata = pd.read_csv("./assets/countries.csv")
 EU = [
     "Austria",
     "Belgium",
@@ -35,6 +32,7 @@ EU = [
     "Sweden",
     "United Kingdom"
 ]
+
 
 def gdpr_compliant_map():
     lt = [
@@ -106,61 +104,43 @@ def twitter_active_map():
 
     st.plotly_chart(fig)
 
+
 def insta_active():
     lt = ["China", "Iran", "North Korea"]
     gapminder = px.data.gapminder().query("year==2007")
-    gapminder["Instagram Active"] = gapminder.apply(lambda row: True if row.country not in lt else False , axis=1)
+    gapminder["Instagram Active"] = gapminder.apply(
+        lambda row: True if row.country not in lt else False, axis=1)
 
     fig = px.choropleth(gapminder, locations="iso_alpha",
-                        color="Instagram Active", 
-                        hover_name="country", 
-                        color_discrete_map={0:"cyan", 1:"yellow"})
+                        color="Instagram Active",
+                        hover_name="country",
+                        color_discrete_map={0: "cyan", 1: "yellow"})
     st.plotly_chart(fig)
+
 
 def paypal_active():
-    lt = {a:"EU" for a in EU}
-    lt["United States"] = "US"
+    lt = {a: 0 for a in EU}
+    lt["United States"] = 2
     gapminder = px.data.gapminder().query("year==2007")
-    gapminder["Paypal Active"] = gapminder.apply(lambda row: "Others" if row.country not in lt else lt[row.country] , axis=1)
+    gapminder["Paypal Active"] = gapminder.apply(
+        lambda row: 1 if row.country not in lt else lt[row.country], axis=1)
 
     fig = px.choropleth(gapminder, locations="iso_alpha",
-                        color="Paypal Active", 
-                        hover_name="country", 
-                        color_discrete_map={0:"cyan", 1:"yellow", 2:"green"})
+                        color="Paypal Active",
+                        hover_name="country",
+                        color_discrete_map={0: "cyan", 1: "yellow", 2: "green"})
     st.plotly_chart(fig)
+
 
 def uber_active():
-    lt = {a:"EU" for a in EU}
-    lt["United States"] = "US"
+    lt = {a: 0 for a in EU}
+    lt["United States"] = 2
     gapminder = px.data.gapminder().query("year==2007")
-    gapminder["Paypal Active"] = gapminder.apply(lambda row: "Others" if row.country not in lt else lt[row.country] , axis=1)
+    gapminder["Paypal Active"] = gapminder.apply(
+        lambda row: 1 if row.country not in lt else lt[row.country], axis=1)
 
     fig = px.choropleth(gapminder, locations="iso_alpha",
-                        color="Paypal Active", 
-                        hover_name="country", 
-                        color_discrete_map={0:"cyan", 1:"yellow", 2:"green"})
+                        color="Paypal Active",
+                        hover_name="country",
+                        color_discrete_map={0: "cyan", 1: "yellow", 2: "green"})
     st.plotly_chart(fig)
-
-def uber_active_2():
-    lt = {a:"EU" for a in EU}
-    lt["United States"] = "US"
-
-    ltdata = geodata.loc[geodata["name"].isin(lt)]
-    # print(ltdata)
-
-    # geodata["color"] = [240, 50, 120]
-    selected_layers = pdk.Layer(
-        "ScatterplotLayer",
-        data=ltdata,
-        get_position=["longitude", "latitude"],
-        get_color=[200, 30, 0, 160],
-        get_radius=2000,
-        radius_scale=100,
-    )
-    # print(selected_layers)
-    st.pydeck_chart(pdk.Deck(
-        map_style="mapbox://styles/mapbox/light-v9",
-        initial_view_state={"latitude": 0,
-                            "longitude": 0, "zoom": 1, "pitch": 20},
-        layers=selected_layers,
-    ))
