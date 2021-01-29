@@ -136,11 +136,11 @@ def uber_active():
     lt = {a: 0 for a in EU}
     lt["United States"] = 2
     gapminder = px.data.gapminder().query("year==2007")
-    gapminder["Paypal Active"] = gapminder.apply(
+    gapminder["Uber Active"] = gapminder.apply(
         lambda row: 1 if row.country not in lt else lt[row.country], axis=1)
 
     fig = px.choropleth(gapminder, locations="iso_alpha",
-                        color="Paypal Active",
+                        color="Uber Active",
                         hover_name="country",
                         color_discrete_map={0: "cyan", 1: "yellow", 2: "green"})
     st.plotly_chart(fig)
