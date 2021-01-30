@@ -83,6 +83,7 @@ st.header("Readability Scores")
 # st.write(df)
 
 csv_readability = pd.read_csv('./assets/readability.csv')
+csv_readability.set_index('Company', inplace=True)
 st.write(csv_readability)
 # READIBILITY SCORES END
 
