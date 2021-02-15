@@ -25,7 +25,7 @@ mapFunc = {
 
 # BODY STARTS HERE
 
-st.write("In our work, we tried to understand the nature of Privacy Privacy policy documents using metrics \
+st.subheader("In our work, we tried to understand the nature of Privacy Privacy policy documents using metrics \
           defined by computational linguistic methods. Primarily, we tried to answer three questions:")
 
 st.header("Were the policies written in a manner that made them easy to comprehend?")
@@ -54,6 +54,51 @@ st.subheader("Readability Scores")
 csv_readability = pd.read_csv('./assets/readability.csv')
 st.write(csv_readability)
 # READIBILITY SCORES END
+
+
+###
+
+
+
+st.write("In addition to their readability, \
+          we attempted to have a look at what is the essence of the documents. We \
+          analysed word clouds to gain a sense of what the main focus points of\
+          each policy document are and n-grams (uni-, bi-, tri-, 4grams) for\
+          each of the privacy policy texts. These have been displayed to provide\
+          an overview for the user.")
+
+# WORDCLOUDS start
+st.subheader("Wordclouds")
+
+val = st.selectbox(
+    'Company name: ',
+    companies
+)
+gram = st.selectbox(
+    'Gram: ',
+    (1, 2, 3, 4)
+)
+
+st.image(images[val][gram-1], use_column_width=True)
+# WORDCLOUDS end
+
+
+# TFIDF start
+st.subheader("N-Grams")
+
+org = st.selectbox(
+    'Company name:',
+    companies
+)
+csv = st.selectbox(
+    'Gram:',
+    (1, 2, 3, 4)
+)
+
+st.write(csvs[org][csv-1], use_column_width=True)
+# TFIDF end
+
+
 
 st.header("Were the policies defined differently for different geographical regions?")
 
@@ -103,44 +148,5 @@ df_similarity = df_similarity.set_index('Company')
 
 st.table(df_similarity)
 # SIMILARITY SCORES END
-
-st.write("In addition to their readability, \
-          we attempted to have a look at what is the essence of the documents. We \
-          analysed word clouds to gain a sense of what the main focus points of\
-          each policy document are and n-grams (uni-, bi-, tri-, 4grams) for\
-          each of the privacy policy texts. These have been displayed to provide\
-          an overview for the user.")
-
-# WORDCLOUDS start
-st.subheader("Wordclouds")
-
-val = st.selectbox(
-    'Company name: ',
-    companies
-)
-gram = st.selectbox(
-    'Gram: ',
-    (1, 2, 3, 4)
-)
-
-st.image(images[val][gram-1], use_column_width=True)
-# WORDCLOUDS end
-
-
-# TFIDF start
-st.subheader("N-Grams")
-
-org = st.selectbox(
-    'Company name:',
-    companies
-)
-csv = st.selectbox(
-    'Gram:',
-    (1, 2, 3, 4)
-)
-
-st.write(csvs[org][csv-1], use_column_width=True)
-# TFIDF end
-
 
 
