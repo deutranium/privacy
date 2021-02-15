@@ -26,7 +26,9 @@ mapFunc = {
 # BODY STARTS HERE
 
 st.subheader("In our work, we tried to understand the nature of Privacy Privacy policy documents using metrics \
-          defined by computational linguistic methods. Primarily, we tried to answer three questions:")
+          defined by computational linguistic methods.")
+
+st.subheader("Primarily, we tried to answer three questions:")
 
 st.header("Were the policies written in a manner that made them easy to comprehend?")
 
