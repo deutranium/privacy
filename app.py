@@ -1,11 +1,10 @@
 import streamlit as st
-import plotly.express as px
 import numpy as np
 
 from components.maps import *
 from components.wordclouds import *
 from components.ngrams import *
-from components.readability import *
+# from components.readability import *
 
 # Similarity file commented out because as it downloads a 1.6gb model everytime ir runs
 # from components.similarity import *
