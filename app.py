@@ -96,10 +96,11 @@ csv = st.selectbox(
     'Gram:',
     (1, 2, 3, 4)
 )
-
-tempDict = csvs[org][csv-1]
-tempDf = pd.DataFrame.from_dict(tempDict) 
+new_csvs = get_ngram_csvs()
+tempDict = new_csvs[org][csv-1]
+tempDf = pd.DataFrame.from_dict(tempDict)
 tempDf.set_index('term', inplace=True)
+tempDf.index.name = 'term'
 st.write(tempDf.style.format("{:.2f}"), use_column_width=True)
 # TFIDF end
 
