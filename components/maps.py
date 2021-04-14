@@ -72,7 +72,7 @@ def gdpr_compliant_map():
     fig = px.choropleth(gapminder, locations="iso_alpha",
                         color="GDPR Compliant",
                         hover_name="country",
-                        color_discrete_map={0: "cyan", 1: "yellow"})
+                        color_discrete_map={0: "#ff8c69", 1: "#00b3fa"})
     st.plotly_chart(fig)
 
 
@@ -85,7 +85,7 @@ def fb_active_map():
     fig = px.choropleth(gapminder, locations="iso_alpha",
                         color="Facebook Active",
                         hover_name="country",
-                        color_discrete_map={0: "cyan", 1: "yellow"})
+                        color_discrete_map={0: "#ff8c69", 1: "#00b3fa"})
 
     st.plotly_chart(fig)
 
@@ -100,7 +100,7 @@ def twitter_active_map():
     fig = px.choropleth(gapminder, locations="iso_alpha",
                         color="Twitter Active",
                         hover_name="country",
-                        color_discrete_map={0: "cyan", 1: "yellow"})
+                        color_discrete_map={0: "#ff8c69", 1: "#00b3fa"})
 
     st.plotly_chart(fig)
 
@@ -114,7 +114,7 @@ def insta_active():
     fig = px.choropleth(gapminder, locations="iso_alpha",
                         color="Instagram Active",
                         hover_name="country",
-                        color_discrete_map={0: "cyan", 1: "yellow"})
+                        color_discrete_map={0: "#ff8c69", 1: "#00b3fa"})
     st.plotly_chart(fig)
 
 
@@ -128,7 +128,7 @@ def paypal_active():
     fig = px.choropleth(gapminder, locations="iso_alpha",
                         color="Paypal Active",
                         hover_name="country",
-                        color_discrete_map={0: "cyan", 1: "yellow", 2: "green"})
+                        color_discrete_map={0: "#ff8c69", 1: "#00b3fa", 2: "#00b3fa"})
     st.plotly_chart(fig)
 
 
@@ -142,5 +142,5 @@ def uber_active():
     fig = px.choropleth(gapminder, locations="iso_alpha",
                         color="Uber Active",
                         hover_name="country",
-                        color_discrete_map={0: "cyan", 1: "yellow", 2: "green"})
+                        color_discrete_map={0: "#ff8c69", 1: "#00b3fa", 2: "#00b3fa"})
     st.plotly_chart(fig)
