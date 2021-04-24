@@ -25,22 +25,34 @@ mapFunc = {
 # BODY STARTS HERE
 
 # SIDEBAR
-nav = st.sidebar.selectbox("Navigation", ["Overview", "Wordclouds", "Pilot Readability Scores", "Similarity Scores"])
+nav = st.sidebar.selectbox("Navigation", ["Overview", "Wordclouds and Maps", "Pilot Readability Scores", "Similarity Scores"])
 
 if nav == "Overview":
 
-    st.subheader("In our work, we tried to understand the nature of Privacy Privacy policy documents using metrics \
+    st.header("Privacy Policy Analysis: What does it say?")
+    st.subheader("DIRI-ISB Hyderabad")
+
+    st.markdown("### In our work, we tried to understand the nature of Privacy Privacy policy documents using metrics \
             defined by computational linguistic methods.")
 
-    st.subheader("Primarily, we tried to answer three questions:")
+    st.markdown("#### Primarily, we tried to work on the folllwing three points:")
+    st.markdown("**The _essence_ of the policy:** What are the most common words and phrases in the policy? At first glance what information does it convey?")
+    st.markdown("**Geographical variation:** Are same rules applicable to every person on the planet Earth? Or different ones for a person from The US and a person from China?")
+    st.markdown("**Readability Scores:** How readable a policy is? Can a middle schol student understand it? Or does it need a Masters student to figure out what it says?")
+    st.markdown("**Similarity Scores:** Do the policies follow a common flow of thought? Are there duplicate policies throughout companies? Or are they contrasting in what they convey?")
+
+    st.markdown("---")
+
+    st.subheader("How to Use?")
 
     # READIBILITY SCORES END
 
 
-elif nav == "Wordclouds":
+elif nav == "Wordclouds and Maps":
 
-    st.write("In addition to their readability, \
-            we attempted to have a look at what is the essence of the documents. We \
+    st.header("The _essence_ of a privacy policy")
+
+    st.write("We attempted to have a look at what is the essence of the documents. We \
             analysed word clouds to gain a sense of what the main focus points of\
             each policy document are and n-grams (uni-, bi-, tri-, 4grams) for\
             each of the privacy policy texts. These have been displayed to provide\
@@ -48,36 +60,27 @@ elif nav == "Wordclouds":
     # WORDCLOUDS start
     st.subheader("Wordclouds")
 
-    val = st.selectbox(
+    wc_col_1, wc_col_2 = st.beta_columns(2)
+
+    val = wc_col_1.selectbox(
         'Company name: ',
         companies
     )
-    gram = st.selectbox(
+    gram = wc_col_2.selectbox(
         'Gram: ',
         (1, 2, 3, 4)
     )
 
-    st.image(images[val][gram-1], use_column_width=True)
+    wc_content_col_1, wc_content_col_2 = st.beta_columns((5,4))
+
+    wc_content_col_1.image(images[val][gram-1], use_column_width=True)
     # WORDCLOUDS end
 
-
-    # TFIDF start
-    st.subheader("N-Grams")
-
-    org = st.selectbox(
-        'Company name:',
-        companies
-    )
-    csv = st.selectbox(
-        'Gram:',
-        (1, 2, 3, 4)
-    )
-
-    st.write(csvs[org][csv-1], use_column_width=True)
+    wc_content_col_2.write(csvs[val][gram-1], use_column_width=True)
     # TFIDF end
 
-
-
+    st.markdown("---")
+    st.header("Geographical Variation")
     st.header("Were the policies defined differently for different geographical regions?")
 
     st.write("GDPR being the most strictly defined data privacy laws, formed the basis\
