@@ -31,11 +31,12 @@ if nav == "Overview":
 
     st.header("Privacy Policy Analysis: What does it say?")
     st.subheader("DIRI-ISB Hyderabad")
+    st.markdown("")
 
     st.markdown("### In our work, we tried to understand the nature of Privacy Privacy policy documents using metrics \
             defined by computational linguistic methods.")
 
-    st.markdown("#### Primarily, we tried to work on the folllwing three points:")
+    st.markdown("#### Primarily, we tried to work on the following three points:")
     st.markdown("**The _essence_ of the policy:** What are the most common words and phrases in the policy? At first glance what information does it convey?")
     st.markdown("**Geographical variation:** Are same rules applicable to every person on the planet Earth? Or different ones for a person from The US and a person from China?")
     st.markdown("**Readability Scores:** How readable a policy is? Can a middle schol student understand it? Or does it need a Masters student to figure out what it says?")
