@@ -43,7 +43,19 @@ if nav == "Overview":
 
     st.markdown("---")
 
+    st.subheader("Methodology")
+    st.markdown("**Corpus**")
+    st.markdown("We analyzed privacy policies of ......")
+    
+    
+    
+    st.markdown("---")
+
     st.subheader("How to Use?")
+    st.markdown("Use the sidebar on the left to navigate to the following sections as desired:")
+    st.markdown("- **Wordclouds and Maps:** To get the _essence_ of the policies and the geographical variations")
+    st.markdown("- **Pilot Readability Scores:** To get an idea about how readable a certain privacy policy is")
+    st.markdown("- **Similarity Scores:** How similar privacy policies are across different companies")
 
     # READIBILITY SCORES END
 
