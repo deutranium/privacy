@@ -42,13 +42,6 @@ if nav == "Overview":
     st.markdown("**Readability Scores:** How readable a policy is? Can a middle schol student understand it? Or does it need a Masters student to figure out what it says?")
     st.markdown("**Similarity Scores:** Do the policies follow a common flow of thought? Are there duplicate policies throughout companies? Or are they contrasting in what they convey?")
 
-    st.markdown("---")
-
-    st.subheader("Methodology")
-    st.markdown("**Corpus**")
-    st.markdown("We analyzed privacy policies of ......")
-    
-    
     
     st.markdown("---")
 
